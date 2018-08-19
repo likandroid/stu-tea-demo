@@ -23,6 +23,7 @@ router.post('/login', function(req, res, next) {
       message:"账号或密码不能为空"
       })
       return;
+
   }
 
   pool.query("SELECT * FROM `users` WHERE loginName = ? AND password = ? AND type = ?",[loginName,md5(password),type],function(err,result){
