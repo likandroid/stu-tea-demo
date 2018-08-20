@@ -2,15 +2,15 @@
 <html>
 
 <head>
-  <title>
-    <%= title %>
-  </title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-  <link href="/javascripts/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap -->
-  <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
-  <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
-  <!--[if lt IE 9]>
+    <title>
+        学生管理系统
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="/javascripts/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
       <script src="/javascripts/html5shiv%2F3.7.3%2Fhtml5shiv.min.js"></script>
       <script src="/javascripts/respond.js%2F1.4.2%2Frespond.min.js"></script>
     <![endif]-->
@@ -18,34 +18,107 @@
 </head>
 
 <body>
-    <!-- 占位符 -->
-  <%- body -%>
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h4 class="modal-title" id="myModalLabel">提示</h4>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                        <%= title%>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="javascript:void(0)" id="logout">注销</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="modal-body">
-
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="margin-left: 0;">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    学生管理
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body" style="padding: 0">
+                                <div class="panel-body" style="padding: 0">
+                                    <ul class="list-group" style="margin-bottom: 0">
+                                        <li class="list-group-item"> <a href="/students/add">添加学生</a> </li>
+                                        <li class="list-group-item"><a href="/students/list">学生列表</a> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
+                                    aria-controls="collapseTwo">
+                                    教师管理
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body" style="padding: 0">
+                                <ul class="list-group" style="margin-bottom: 0">
+                                    <li class="list-group-item"><a href="/teachers/add">添加教师</a> </li>
+                                    <li class="list-group-item"><a href="/teachers/">教师列表</a> </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10" style="padding-right: 0;">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <!-- 点位符 -->             
+                        <%- body -%>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="modal-footer">
-          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-          <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
-        </div>
-      </div>
     </div>
-  </div>
-  <script src="/javascripts/jquery-3.3.1.min.js"></script>
-  <script src="/javascripts/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
 
-  <%- block('footer').toString() %>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">提示</h4>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="/javascripts/jquery-3.3.1.min.js"></script>
+    <script src="/javascripts/jquery.cookie.min.js"></script>
+    <script src="/javascripts/purl.min.js"></script>
+    <script src="/javascripts/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+    <script src="/javascripts/index.js"></script>
+    <%- block('footer').toString() %>
 </body>
 
 </html>
