@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link href="/javascripts/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap -->
+  <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+  <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+  <!--[if lt IE 9]>
+      <script src="/javascripts/html5shiv%2F3.7.3%2Fhtml5shiv.min.js"></script>
+      <script src="/javascripts/respond.js%2F1.4.2%2Frespond.min.js"></script>
+    <![endif]-->
+    <%- block('head').toString() %>
+</head>
+
+<body>
+    <!-- 占位符 -->
+  <%- body -%>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">提示</h4>
+        </div>
+        <div class="modal-body">
+
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+          <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/javascripts/jquery-3.3.1.min.js"></script>
+  <script src="/javascripts/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+
+  <%- block('footer').toString() %>
+</body>
+
+</html>
