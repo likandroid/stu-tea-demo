@@ -44,8 +44,12 @@
                 <div class="form-group">
                     <label for="majorId">所学专业：</label>
                     <select class="form-control" id="majorId">
-                        <option value="男">男</option>
-                        <option value="女">女</option>
+                        <option value="-1" selected>请选择...</option>
+                        <% for(var i = 0;i < majors.length ;i++ ){ %>
+                            <option value="<%= majors[i].id%>">
+                                <%= majors[i].name %>
+                            </option>
+                        <% } %>
                     </select>
                 </div>
             </div>
@@ -56,8 +60,12 @@
                 <div class="form-group">
                     <label for="classId">所读班级：</label>
                     <select class="form-control" id="classId">
-                        <option value="男">男</option>
-                        <option value="女">女</option>
+                        <option value="-1" selected>请选择...</option>
+                        <% for(var i = 0;i < classes.length ;i++ ){ %>
+                            <option value="<%= classes[i].id%>">
+                                <%= classes[i].name %>
+                            </option>
+                        <% } %>
                     </select>
                 </div>
             </div>
@@ -65,8 +73,12 @@
                 <div class="form-group">
                     <label for="departId">所属院系：</label>
                     <select class="form-control" id="departId">
-                        <option value="男">男</option>
-                        <option value="女">女</option>
+                        <option value="-1" selected>请选择...</option>
+                        <% for(var i = 0;i < departs.length ;i++ ){ %>
+                            <option value="<%= departs[i].id%>">
+                                <%= departs[i].name %>
+                            </option>
+                        <% } %>
                     </select>
                 </div>
             </div>
@@ -107,11 +119,11 @@
                 </div>
             </div>
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                <button type="submit" class="btn btn-primary" id="btnSave">Submit</button>
+                <button type="submit" class="btn btn-primary" id="btnSave">保存</button>
             </div>
         </div>
 
 
     </form>
-    
+
     <% block('footer').append('<script src="/javascripts/stu-add.js"></script>') -%>

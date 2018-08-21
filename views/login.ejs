@@ -43,10 +43,9 @@
                         <label for="" class="col-sm-4 control-label" >类型:</label>
                         <div class="col-sm-8">
                             <select class="form-control" id="type">
-                                <option value="2">学生</option>
-                                <option value="0">教师</option>
                                 <option value="1">超级管理员</option>
-
+                                <option value="2">学生</option>
+                                <option value="0">教师</option>                              
                             </select>
                         </div>
                     </div>
@@ -88,10 +87,18 @@
         </div>
     </div>
     <script src="/javascripts/jquery-3.3.1.min.js"></script>
+    <script src="/javascripts/jquery.cookie.min.js"></script>
     <script src="/javascripts/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
     <script>
         $(function(){
+            console.log($.cookie('loginName'));
+            if($.cookie('loginName')){
+                $('#loginName').val($.cookie('loginName'));
+            }
+            /* else{
+                $('#loginName').attr("placeholder","请输入账号");
+            } */
             $('#btnLogin').click(function(ev){
                 ev.preventDefault();
                 var loginName = $.trim($('#loginName').val());

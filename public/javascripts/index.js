@@ -53,7 +53,14 @@ $(`.list-group a[href='${activeLink}']`).parent().addClass('active');
 $('.panel-title a').attr('aria-expanded', false);
 $('.panel-collapse').removeClass('in');
 
-$(`.list-group a[href='${activeLink}']`).closest('.panel-default').find('.panel-title a').attr('aria-expanded', true);
-$(`.list-group a[href='${activeLink}']`).closest('.panel-collapse').addClass('in');
+if($(`.list-group a[href='${activeLink}']`).length == 0){
+  // 找不到路径时，让学生管理默认展开显示
+  $('.panel-title:first a').attr('aria-expanded', true);
+  $('.panel-collapse:first').addClass('in');
+}else{
+  $(`.list-group a[href='${activeLink}']`).closest('.panel-default').find('.panel-title a').attr('aria-expanded', true);
+  $(`.list-group a[href='${activeLink}']`).closest('.panel-collapse').addClass('in');
+}
+
 
 })
