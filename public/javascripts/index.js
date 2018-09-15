@@ -62,5 +62,4 @@ if($(`.list-group a[href='${activeLink}']`).length == 0){
   $(`.list-group a[href='${activeLink}']`).closest('.panel-collapse').addClass('in');
 }
 
-
 })

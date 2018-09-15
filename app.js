@@ -34,6 +34,7 @@ app.use(session({
 
 // app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+console.log(path.join(__dirname, 'public'));
 
 app.use('/', indexRouter);
 // app.use('/users', usersRouter);

@@ -1,2 +1,130 @@
-
 <% layout('layout') -%>   
+
+<!-- 运用form表单的POST请求，传递的则是name属性，name属性用于提交一个form表单数据时，对数据的引用 -->
+<!-- action="/teachers/add" method="POST" -->
+<form>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="form-group">
+                    <label for="tno">编号：</label>
+                    <input type="text" class="form-control" id="tno" placeholder="请输入教师编号" name="tno">
+                </div>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="form-group">
+                    <label for="name">姓名：</label>
+                    <input type="text" class="form-control" id="name" placeholder="请输入姓名" name="name">
+                </div>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="form-group">
+                    <label for="sex">性别：</label>
+                    <select class="form-control" id="sex" name="sex">
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="form-group">
+                    <label for="birthday">生日：</label>
+                    <input type="date" class="form-control" id="birthday" placeholder="请输入生日" name="birthday">
+                </div>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="form-group">
+                    <label for="card">身份证：</label>
+                    <input type="text" class="form-control" id="card" placeholder="请输入身份证" name="card" pattern="">
+                </div>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="form-group">
+                    <label for="majorId">所属专业：</label>
+                    <select class="form-control" id="majorId" name="majorId">
+                        <option value="-1" selected>请选择...</option>
+                        <% for(var i = 0;i < majors.length ;i++ ){ %>
+                            <option value="<%= majors[i].id%>">
+                                <%= majors[i].name %>
+                            </option>
+                        <% } %>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="form-group">
+                    <label for="classId">所属班级：</label>
+                    <select class="form-control" id="classId" name="classId">
+                        <option value="-1" selected>请选择...</option>
+                        <% for(var i = 0;i < classes.length ;i++ ){ %>
+                            <option value="<%= classes[i].id%>">
+                                <%= classes[i].name %>
+                            </option>
+                        <% } %>
+                    </select>
+                </div>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="form-group">
+                    <label for="departId">所属院系：</label>
+                    <select class="form-control" id="departId" name="departId">
+                        <option value="-1" selected>请选择...</option>
+                        <% for(var i = 0;i < departs.length ;i++ ){ %>
+                            <option value="<%= departs[i].id%>">
+                                <%= departs[i].name %>
+                            </option>
+                        <% } %>                        
+                    </select>
+                </div>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="form-group">
+                    <label for="nativePlace">籍贯：</label>
+                    <input type="text" class="form-control" id="nativePlace" placeholder="请输入籍贯" name="nativePlace">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="form-group">
+                    <label for="address">家庭地址：</label>
+                    <input type="text" class="form-control" id="address" placeholder="请输入家庭地址" name="address">
+                </div>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="form-group">
+                    <label for="qq">QQ：</label>
+                    <input type="text" class="form-control" id="qq" placeholder="请输入QQ" name="qq">
+                </div>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="form-group">
+                    <label for="phone">手机：</label>
+                    <input type="text" class="form-control" id="phone" placeholder="请输入手机号" name="phone">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                <div class="form-group">
+                    <label for="email">邮箱：</label>
+                    <input type="email" class="form-control" id="email"  placeholder="请输入邮箱" name="email">
+                </div>
+            </div>
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                <button type="submit" class="btn btn-primary" id="btnSave">保存</button>
+            </div>
+        </div>
+
+
+    </form>
+    <% block('footer').append('<script src="/javascripts/yanz.js"></script>') %>
+    <% block('footer').append('<script src="/javascripts/t-add.js"></script>') -%>
